@@ -1,0 +1,1 @@
+# Este ficheiro indica que a pasta 'src' é um pacote Python.
