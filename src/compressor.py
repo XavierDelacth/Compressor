@@ -8,13 +8,13 @@ from PIL import Image
 from utils import calcular_taxa_compressao, gerar_grafico_comparativo
 
 def ejecutar_analise_comparativa(nome_arquivo_imagem, qualidade_webp=80, nivel_zstd=3):
-    # Caminhos base calculados a partir da localização deste script (dentro da pasta 'src')
+    # Caminhos base calculados a partir da localização deste script 
     pasta_raiz = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
     
     pasta_origem = os.path.join(pasta_raiz, "midias_originais")
     pasta_destino = os.path.join(pasta_raiz, "midias_comprimidas")
     
-    # Novas subpastas de organização exigidas
+    # As subpastas de organização exigidas
     pasta_gzip = os.path.join(pasta_destino, "gzip")
     pasta_zstd = os.path.join(pasta_destino, "zstd")
     pasta_analises = os.path.join(pasta_raiz, "analises_comparativas")
@@ -30,13 +30,13 @@ def ejecutar_analise_comparativa(nome_arquivo_imagem, qualidade_webp=80, nivel_z
     
     nome_base = os.path.splitext(nome_arquivo_imagem)[0]
     
-    # Definição dos novos caminhos estruturados
+    # Definição caminhos estruturados
     caminho_temp_webp = os.path.join(pasta_destino, f"temp_{nome_base}.webp")
     caminho_final_zst = os.path.join(pasta_zstd, f"{nome_base}_combo_zstd.webp.zst")
     caminho_final_gzip = os.path.join(pasta_gzip, f"{nome_base}_combo_gzip.webp.gz")
     caminho_grafico = os.path.join(pasta_analises, f"analise_comparativa_{nome_base}.png")
     
-    # Cria dinamicamente toda a árvore de diretorias necessária
+    # Toda a árvore de diretorias necessária
     os.makedirs(pasta_destino, exist_ok=True)
     os.makedirs(pasta_gzip, exist_ok=True)
     os.makedirs(pasta_zstd, exist_ok=True)
@@ -69,7 +69,8 @@ def ejecutar_analise_comparativa(nome_arquivo_imagem, qualidade_webp=80, nivel_z
         tam_gzip = os.path.getsize(caminho_final_gzip)
         t_final_gzip = (time.time() - t_inicial_gzip) + t_inicial_webp 
         
-        # --- GERAÇÃO DE GRÁFICOS E MÉTRICAS (Enviando para a nova pasta dedicada)
+        # --- GERAÇÃO DE GRÁFICOS E MÉTRICAS 
+        # Enviando para a pasta
         gerar_grafico_comparativo(nome_arquivo_imagem, tam_original, tam_webp, tam_zstd, tam_gzip, caminho_grafico)
         
         # Exibição dos dados estruturados

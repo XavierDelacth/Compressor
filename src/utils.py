@@ -9,7 +9,7 @@ def calcular_taxa_compressao(tamanho_original, tamanho_final):
 
 def gerar_grafico_comparativo(nome_imagem, tam_original, tam_webp, tam_zstd, tam_gzip, caminho_salvar):
     """Gera um gráfico de barras comparando o impacto das diferentes combinações."""
-    # Converter bytes para Kilobytes (KB)
+    # Converter bytes para KB
     tamanhos_kb = [
         tam_original / 1024, 
         tam_webp / 1024, 

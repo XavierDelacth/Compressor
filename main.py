@@ -1,18 +1,17 @@
 import os
 import sys
 
-# Garante que a raiz do projeto e a pasta 'src' estão no PATH do Python
+# Garantir que a raiz do projeto e a pasta 'src' estão no PATH do Python
 pasta_raiz = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(pasta_raiz)
 sys.path.append(os.path.join(pasta_raiz, 'src'))
 
-# CORREÇÃO DA IMPORTAÇÃO: Importa explicitamente de src.compressor 
-# usando o nome correto da função que foi declarada no seu ficheiro (com 'j')
+# Importa explicitamente de src.compressor 
 from src.compressor import ejecutar_analise_comparativa
 
 def iniciar_menu_interativo():
     print("====================================================")
-    print("   SISTEMA INTERATIVO DE COMPRESSÃO - TP05 ISPTEC   ")
+    print("   SISTEMA INTERATIVO DE COMPRESSÃO -               ")
     print("====================================================")
     
     pasta_origem = os.path.join(pasta_raiz, "midias_originais")
@@ -48,7 +47,7 @@ def iniciar_menu_interativo():
         except ValueError:
             print("[ERRO] Entrada inválida. Digite um número inteiro.")
             
-    # Pergunta técnica sobre as propriedades da mídia (Análise de Entropia)
+    # Pergunta técnica sobre as propriedades da mídia
     print("\nQual é o tipo predominante de elementos visuais nesta mídia?")
     print(" [1] Contém texto nítido, formas geométricas, gráficos ou elements vetorizados (Cores Sólidas)")
     print(" [2] É uma fotografia realista, paisagem natural ou imagem de transição cromática complexa")
@@ -70,7 +69,7 @@ def iniciar_menu_interativo():
         except ValueError:
             print("[ERRO] Entrada inválida. Digite 1 ou 2.")
             
-    # Executa a chamada com o nome correto da função do compressor.py
+    # Executar a chamada com o nome correto
     ejecutar_analise_comparativa(imagem_selecionada, qualidade_webp=qualidade_definida, nivel_zstd=3)
 
 if __name__ == "__main__":
